@@ -1,0 +1,15 @@
+# coding: utf-8
+Spree::Order.class_eval do
+  def line_item_comparison(line_item, options)
+    #lineitemとoptionsが同一であるか否かを比較する
+    #lineitemとoptionの型が今の所不明
+    #この関数をline_item_compairson_hooksにregisterする必要がある
+    puts "line_item_comparison is called"
+    line_item.material == options[:material]
+  end
+
+  self.register_line_item_comparison_hook(:line_item_comparison)
+  
+end
+
+
