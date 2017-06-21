@@ -1,5 +1,5 @@
 <%= form_for :order, url: populate_orders_path do |f| %>
-  <div id="inside-product-cart-form" data-hook="inside_product_cart_form" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+<div id="inside-product-cart-form" data-hook="inside_product_cart_form" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
 
     <% if @product.variants_and_option_values_for(current_pricing_options).any? %>
       <div id="product-variants" class="columns five alpha">
@@ -35,11 +35,11 @@
             <% end %>
           </ul>
         </li>
-        
+
         <% end %>
         </ul>
         <input id="material_sakura" type="radio" name="material" value="sakura" ><label for="material_sakura">sakura</label>
-        <input id="material_shitan" type="radio" name="material" value="shitan" ><label for="material_shitan">shitan</label>        
+        <input id="material_shitan" type="radio" name="material" value="shitan" ><label for="material_shitan">shitan</label>
         <input id="material_kokutan" type="radio" name="material" value="kokutan" ><label for="material_kokutan">kokutan</label>
 
       </div>

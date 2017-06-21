@@ -202,6 +202,7 @@ ActiveRecord::Schema.define(version: 20170620193351) do
     t.decimal  "additional_tax_total", precision: 10, scale: 2, default: "0.0"
     t.decimal  "promo_total",          precision: 10, scale: 2, default: "0.0"
     t.decimal  "included_tax_total",   precision: 10, scale: 2, default: "0.0", null: false
+    t.string   "material"
     t.index ["order_id"], name: "index_spree_line_items_on_order_id", using: :btree
     t.index ["variant_id"], name: "index_spree_line_items_on_variant_id", using: :btree
   end
