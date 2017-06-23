@@ -9,7 +9,7 @@ services:
     ports:
       - '3000:3000'
     volumes:
-      - .:/home/nirakka/Work/solidus
+      - .:/home/user/project #change to your project directory
     links:
       - mysql
   mysql:

@@ -1,6 +1,6 @@
 FROM ruby:2.3.0
 
-ENV APP_ROOT /home/nirakka/Work/solidus
+ENV APP_ROOT /home/user/project #change to your project directory
 
 WORKDIR $APP_ROOT
 
