@@ -5,7 +5,7 @@ Spree::Order.class_eval do
     #lineitemとoptionの型が今の所不明
     #この関数をline_item_compairson_hooksにregisterする必要がある
     puts "line_item_comparison is called"
-    line_item.material == options[:material]
+    line_item.nametag_name == options[:nametag_name]
   end
 
   self.register_line_item_comparison_hook(:line_item_comparison)
