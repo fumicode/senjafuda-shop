@@ -6,29 +6,29 @@
 
 				<%= hidden_field_tag "variant_id" %>
 
-				<!--
-					<h6 class="product-section-title"><%= Spree.t(:variants) %></h6>
-					<ul>
-						<% @product.variants_and_option_values_for(current_pricing_options).each_with_index do |variant, index| %>
-							<li>
-								<%= radio_button_tag "variant_id", variant.id, index == 0, 'data-price' => variant.price_for(current_pricing_options)  %>
-								<%= label_tag "variant_id_#{ variant.id }" do %>
-									<span class="variant-description">
-										<%= variant_options variant %>
-									</span>
-									<% if variant_price variant %>
-										<span class="price diff"><%= variant_price variant %></span>
-									<% end %>
+        <!--
+          <h6 class="product-section-title"><%= Spree.t(:variants) %></h6>
+          <ul>
+            <% @product.variants_and_option_values_for(current_pricing_options).each_with_index do |variant, index| %>
+              <li>
+                <%= radio_button_tag "variant_id", variant.id, index == 0, 'data-price' => variant.price_for(current_pricing_options)  %>
+                <%= label_tag "variant_id_#{ variant.id }" do %>
+                  <span class="variant-description">
+                  <%= variant_options variant %>
+                  </span>
+                  <% if variant_price variant %>
+                  <span class="price diff"><%= variant_price variant %></span>
+                <% end %>
 
-									<% unless variant.can_supply? %>
-										<span class="out-of-stock"><%= Spree.t(:out_of_stock) %></span>
-									<% end %>
-								<% end %>
-							</li>
-						<% end%>
-					</ul>
-					<ul>
-				-->
+                <% unless variant.can_supply? %>
+                <span class="out-of-stock"><%= Spree.t(:out_of_stock) %></span>
+                <% end %>
+                <% end %>
+              </li>
+              <% end%>
+            </ul>
+          <ul>
+        -->
 
         <% @product.option_types.each do |ot| %>
         <li><%=  ot.name  %>
@@ -52,44 +52,35 @@
         </pre>
 
 				<script>
-					var option_type_names = <%= @product.option_types_name_array.to_json.html_safe %>;
-					var variant_options = <%= @product.variant_options_hash.to_json.html_safe %>;
+          var option_type_names = <%= @product.option_types_name_array.to_json.html_safe %>;
+          var variant_options = <%= @product.variant_options_hash.to_json.html_safe %>;
 
-					$(function(){
+          $(function(){
+            var form = $("#orderform");
+            var addToCartButton = $("#add-to-cart-button");
 
-						var form = $("#orderform");
+            addToCartButton.click(function(e){
+              var serialized_form = form.serializeArray();
+              var filtered_serialized_form = _(serialized_form).filter(function(el){
+                return _(option_type_names).contains(el.name)
+              });
 
-						var addToCartButton = $("#add-to-cart-button");
+              var input_option_value = {};
 
-		        addToCartButton.click(function(e){
+              _(filtered_serialized_form).each(function(el){
+                input_option_value[el.name] = el.value;
+              });
 
-							var serialized_form = form.serializeArray();
+              var found_variant = _(variant_options).find(function(vo){
+                //vo.options と input_option_value のすべての値が等しい
+                return JSON.stringify(vo.options) == JSON.stringify(input_option_value);
+              });
 
-							var filtered_serialized_form = _(serialized_form).filter(function(el){
-								return _(option_type_names).contains(el.name)
-							});
+              $("#variant_id").val(found_variant.variant_id);
+            });
+          });
 
-							var input_option_value = {};
-
-							_(filtered_serialized_form).each(function(el){
-								input_option_value[el.name] = el.value;
-							});
-
-							var found_variant = _(variant_options).find(function(vo){
-
-								//vo.options と input_option_value のすべての値が等しい
-									
-								return JSON.stringify(vo.options) == JSON.stringify(input_option_value);
-							});
-
-							$("#variant_id").val(found_variant.variant_id);
-
-						});
-						
-
-				  });
-
-				</script>
+        </script>
 
         <input id="material_sakura" type="radio" name="material" value="sakura" ><label for="material_sakura">sakura</label>
         <input id="material_shitan" type="radio" name="material" value="shitan" ><label for="material_shitan">shitan</label>
@@ -102,7 +93,6 @@
 
     <% if @product.price_for(current_pricing_options) and !@product.price.nil? %>
       <div data-hook="product_price" class="columns five <%= !@product.has_variants? ? 'alpha' : 'omega' %>">
-
         <div id="product-price">
           <h6 class="product-section-title"><%= Spree.t(:price) %></h6>
           <div>
