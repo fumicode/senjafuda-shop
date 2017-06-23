@@ -38,6 +38,10 @@
 
         <% end %>
         </ul>
+        <pre>
+          data
+        <%= @product.variant_options_hash.to_json %>
+        </pre>
         <input id="material_sakura" type="radio" name="material" value="sakura" ><label for="material_sakura">sakura</label>
         <input id="material_shitan" type="radio" name="material" value="shitan" ><label for="material_shitan">shitan</label>
         <input id="material_kokutan" type="radio" name="material" value="kokutan" ><label for="material_kokutan">kokutan</label>

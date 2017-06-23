@@ -22,6 +22,7 @@ RUN \
   chmod uog+r /etc/gemrc && \
   bundle config --global build.nokogiri --use-system-libraries && \
   bundle config --global jobs 4 && \
+  gem update --system 2.6.9 && \
   bundle install && \
   rm -rf ~/.gem
 

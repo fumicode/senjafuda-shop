@@ -27,6 +27,9 @@ Spree::Product.class_eval do
   #   end
   #   @_variant_options_hash = hash
   # end
-  
-
+  def variant_options_hash
+    variants.map do |variant|
+      {:variant_id => variant.id, :options => variant.options_hash}
+    end
+  end
 end

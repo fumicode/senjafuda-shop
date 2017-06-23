@@ -13,5 +13,16 @@ Spree::Variant.class_eval do
       :price => number_to_currency(actual_price)
     }
   end
-    
+
+   def options_hash
+      values = option_values.includes(:option_type).sort_by do |option_value|
+        option_value.option_type.position
+      end
+
+      values.to_a.map! do |ov|
+        {ov.option_type.name => ov.name}
+      end
+
+   end
+
 end
