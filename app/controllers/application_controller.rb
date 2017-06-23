@@ -6,6 +6,6 @@ end
 
 module Spree
   module PermittedAttributes
-    @@line_item_attributes = [:id, :variant_id, :quantity, {options:[:material, :choice]} ]
+    @@line_item_attributes = [:id, :variant_id, :quantity,:nametag_name ,:nametag_ura_name ,:nametag_belt]
   end
 end

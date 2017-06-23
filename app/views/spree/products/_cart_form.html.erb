@@ -31,60 +31,78 @@
         -->
 
         <% @product.option_types.each do |ot| %>
-        <li><%=  ot.name  %>
+          <h6><%=  ot.name  %></h6>
           <ul>
             <% ot.option_values.each do |ov| %>
-            <li>
-              <%= radio_button_tag  ot.name, ov.name %>
-              <label for=<%= ot.name+'_' +ov.name  %> ><%= ov.presentation %></label>
+            <li> 
+              <label>
+                <%= radio_button_tag ot.name, ov.name %>
+                <%= ov.presentation %>
+              </label>
             </li>
             <% end %>
           </ul>
-        </li>
-
         <% end %>
-        </ul>
-        <pre>
-          data
-					<%= @product.variant_options_hash.to_json %>
-					<%= @product.option_types_name_array.to_json %>;
 
-        </pre>
+
+        <h6>名前(6文字まで)</h6>
+        <p>
+          <%= text_field_tag 'nametag_name' %>
+        </p>
+
+        <h6>裏面の文字</h6>
+        <p>
+          <%= text_field_tag 'nametag_ura_name' %>
+        </p>
+
+        <h6>ベルトの色</h6>
+        <ul>
+          <li><label>
+            <%= radio_button_tag :nametag_belt, :black %> 黒
+          </label></li>
+          <li><label>
+            <%= radio_button_tag :nametag_belt, :white %> 白
+          </label></li>
+        </ul>
+
 
 				<script>
           var option_type_names = <%= @product.option_types_name_array.to_json.html_safe %>;
           var variant_options = <%= @product.variant_options_hash.to_json.html_safe %>;
+
 
           $(function(){
             var form = $("#orderform");
             var addToCartButton = $("#add-to-cart-button");
 
             addToCartButton.click(function(e){
+              //フォームのデータの配列
               var serialized_form = form.serializeArray();
+              //option_typeでフィルタリングする
               var filtered_serialized_form = _(serialized_form).filter(function(el){
                 return _(option_type_names).contains(el.name)
               });
 
+              
+              //形式を変換
               var input_option_value = {};
-
               _(filtered_serialized_form).each(function(el){
                 input_option_value[el.name] = el.value;
               });
 
+              //variant一覧のなかから、一致するものをGETする
               var found_variant = _(variant_options).find(function(vo){
                 //vo.options と input_option_value のすべての値が等しい
                 return JSON.stringify(vo.options) == JSON.stringify(input_option_value);
               });
 
+              //hidden_tagの値に入れる
               $("#variant_id").val(found_variant.variant_id);
             });
+
           });
 
         </script>
-
-        <input id="material_sakura" type="radio" name="material" value="sakura" ><label for="material_sakura">sakura</label>
-        <input id="material_shitan" type="radio" name="material" value="shitan" ><label for="material_shitan">shitan</label>
-        <input id="material_kokutan" type="radio" name="material" value="kokutan" ><label for="material_kokutan">kokutan</label>
 
       </div>
     <% else %>
