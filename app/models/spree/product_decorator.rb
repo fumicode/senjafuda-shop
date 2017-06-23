@@ -32,4 +32,10 @@ Spree::Product.class_eval do
       {:variant_id => variant.id, :options => variant.options_hash}
     end
   end
+
+  def option_types_name_array
+		option_types.map do |el|
+			el.name
+		end
+	end
 end

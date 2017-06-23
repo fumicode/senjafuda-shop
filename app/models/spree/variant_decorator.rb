@@ -19,10 +19,13 @@ Spree::Variant.class_eval do
         option_value.option_type.position
       end
 
-      values.to_a.map! do |ov|
-        {ov.option_type.name => ov.name}
+			hash = {}
+
+      values.to_a.each do |ov|
+				hash[ov.option_type.name] = ov.name;
       end
 
+			hash
    end
 
 end
