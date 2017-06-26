@@ -1,4 +1,5 @@
 Spree::OrdersController.class_eval do
+
   def populate
     @order   = current_order(create_order_if_necessary: true)
     variant  = Spree::Variant.find(params[:variant_id])

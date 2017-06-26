@@ -1,4 +1,11 @@
 Spree::OrderContents.class_eval do
+
+  def copy(variant, quantity = 1, options = {})
+    line_item = add_to_line_item(variant, quantity, options, true) #別アイテム扱いにしてマージしない
+    after_add_or_remove(line_item, options)
+  end
+
+
   def add_to_line_item(variant, quantity, options = {}, no_merge=false)
 
     line_item = grab_line_item_by_variant(variant, false, options) unless no_merge
