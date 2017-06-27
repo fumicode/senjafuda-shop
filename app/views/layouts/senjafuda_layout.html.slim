@@ -4,9 +4,12 @@ html
     title 千社札.com
     meta(name="viewport", content="width=device-width,initial-scale=1")
 
-
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' 
-    style(href="/stylesheets/senjafuda-style.css")
+
+    link(rel="stylesheet" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css")
+
+    = javascript_include_tag 'spree/frontend/all'
+    script( src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js")
 
   body
     div.page
@@ -17,24 +20,20 @@ html
               .topbar__inner
                 .topbar__siteTitle 
                   a(href="/")
-                    img.topbar__siteLogo(src="<?= get_stylesheet_directory_uri()?>/images/topbar_sitelogo.png")
+                    img.topbar__siteLogo(src="/assets/topbar_sitelogo.png")
                 .topbar__otherLangs
                   // もはやulいらないかも
                   ul.otherLangs.--on-topbarInside
                     li.otherLangs__item
                       a.otherLangs__link(href="/en")
-                        img.otherLangs__image(src="<?= get_stylesheet_directory_uri()?>/images/lang_button_en.png")
-
-
+                        img.otherLangs__image(src="/assets/lang_button_en.png")
 
 
                 .topbar__menuButton
                   button.menuButton
-                    img.menuButton__image(src="<?= get_stylesheet_directory_uri()?>/images/menu_button.jpg")
-      
+                    img.menuButton__image(src="/assets/menu_button.jpg")
 
 
-  
 
         
       div.page__content
@@ -42,7 +41,22 @@ html
 
       div.page__footer
 
+    javascript:
+      jQuery(function(){
 
-    
+        jQuery('.optionSelector.--column-3').slick({
+          slidesToShow:1,
+          slidesToScroll:1,
+          centerMode:true,
+          centerPadding:"200px",
+          focusOnSelect:true,
+          arrows:false,
+        });
 
-    
+        jQuery('.optionSelector.--column-2').slick({
+          slidesToShow:2,
+          slidesToScroll:1,
+          focusOnSelect:true,
+          arrows:false,
+        });
+      });
