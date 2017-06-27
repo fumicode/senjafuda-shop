@@ -1,6 +1,6 @@
 FROM ruby:2.3.0
 
-ENV APP_ROOT /home/nirakka/Work/solidus #change to your project directory
+ENV APP_ROOT /home/vagrant/programs/senjafuda-shop
 
 WORKDIR $APP_ROOT
 
