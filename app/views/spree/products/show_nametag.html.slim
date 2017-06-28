@@ -1,5 +1,7 @@
 .contentBox.--green
   .articleContent
+    h2
+      = @product.class.to_s
     h1 ネームタグご注文ページ
     img(src="/assets/nametag_top.png" alt="ゴルフネームタグ" style="width:100%")
 
@@ -26,7 +28,7 @@
 
     = form_for :order, url: populate_orders_path, html:{id:"orderform"} do |f| 
 
-      = hidden_field_tag "type", "Spree::NametagLineItem"
+      = hidden_field_tag "type", "NametagLineItem"
       = hidden_field_tag "variant_id"
 
       table.flowTitle
