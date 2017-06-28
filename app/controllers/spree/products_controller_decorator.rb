@@ -1,4 +1,5 @@
 Spree::ProductsController.class_eval do
+  layout "senjafuda_layout"
   
   def show
     @variants = @product.
@@ -10,6 +11,7 @@ Spree::ProductsController.class_eval do
     @product_properties = @product.product_properties.includes(:property)
     @taxon = Spree::Taxon.find(params[:taxon_id]) if params[:taxon_id]
 
-    render layout: "senjafuda_layout"
+    #render :layout => "/layouts/senjafuda_layout"
+
   end
 end

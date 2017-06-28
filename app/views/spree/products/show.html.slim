@@ -24,7 +24,10 @@
       .flowOverview__item  5.完成
 
 
-    form
+    = form_for :order, url: populate_orders_path, html:{id:"orderform"} do |f| 
+
+      = hidden_field_tag "variant_id", "21"
+
       table.flowTitle
         tr
           td.flowTitle__item.--title 
@@ -37,30 +40,33 @@
       
       .optionSelector.--column-3
         .optionSelector__item
-          input(type="radio" name="nametag-material" value="sakura")
-          .thumbnailBox
-            h3.thumbnailBox__title 桜
-            p.thumbnailBox__exp 文字くっきり
-            img.thumbnailBox__image(src="/assets/nametag_material_sakura.png")
-            .thumbnailBox__price 2000円
+          label
+            input.optionSelector__radio(type="radio" name="nametag-material" value="sakura" checked)
+            .thumbnailBox
+              h3.thumbnailBox__title 桜
+              p.thumbnailBox__exp 文字くっきり
+              img.thumbnailBox__image(src="/assets/nametag_material_sakura.png")
+              .thumbnailBox__price 2000円
 
         .optionSelector__item
-          input(type="radio" name="nametag-material" value="sakura")
-          .thumbnailBox
-            h3.thumbnailBox__title 紫檀
+          label
+            input.optionSelector__radio(type="radio" name="nametag-material" value="shitan")
+            .thumbnailBox
+              h3.thumbnailBox__title 紫檀
 
-            p.thumbnailBox__exp 渋さと文字の両立
-            img.thumbnailBox__image(src="/assets/nametag_material_shitan.png")
-            .thumbnailBox__price 3000円
+              p.thumbnailBox__exp 渋さと文字の両立
+              img.thumbnailBox__image(src="/assets/nametag_material_shitan.png")
+              .thumbnailBox__price 3000円
 
         .optionSelector__item
-          input(type="radio" name="nametag-material" value="sakura")
-          .thumbnailBox
-            h3.thumbnailBox__title 黒檀
-            p.thumbnailBox__exp とことん粋な渋さ
-            img.thumbnailBox__image(src="/assets/nametag_material_kokutan.png")
+          label
+            input.optionSelector__radio(type="radio" name="nametag-material" value="kokutan")
+            .thumbnailBox
+              h3.thumbnailBox__title 黒檀
+              p.thumbnailBox__exp とことん粋な渋さ
+              img.thumbnailBox__image(src="/assets/nametag_material_kokutan.png")
 
-            .thumbnailBox__price 4000円
+              .thumbnailBox__price 4000円
 
 
 
@@ -79,20 +85,24 @@
 
       .optionSelector.--column-2
         .optionSelector__item
-          .thumbnailBox
-            h3.thumbnailBox__title 裏面なし
-            p.thumbnailBox__exp 
-            img.thumbnailBox__image(src="/assets/nametag_uranashi.png")
-            .thumbnailBox__price &nbsp;
+          label
+            input.optionSelector__radio(type="radio" name="nametag-ura" value="ura-nashi" checked)
+
+            .thumbnailBox
+              h3.thumbnailBox__title 裏面なし
+              p.thumbnailBox__exp 
+              img.thumbnailBox__image(src="/assets/nametag_uranashi.png")
+              .thumbnailBox__price &nbsp;
 
         .optionSelector__item
-          .thumbnailBox
-            h3.thumbnailBox__title 裏面あり
-            p.thumbnailBox__exp 
-            img.thumbnailBox__image(src="/assets/nametag_uraari.png")
 
-
-            .thumbnailBox__price +1000円
+          label
+            input.optionSelector__radio(type="radio" name="nametag-ura" value="ura-ari")
+            .thumbnailBox
+              h3.thumbnailBox__title 裏面あり
+              p.thumbnailBox__exp 
+              img.thumbnailBox__image(src="/assets/nametag_uraari.png")
+              .thumbnailBox__price +1000円
       
 
 
@@ -109,7 +119,7 @@
 
 
       h3 表面文字（6文字まで）
-      input(type="text" name="text_omote")
+      input(type="text" name="nametag_name")
 
 
       h3 裏面文字
@@ -121,7 +131,7 @@
         | （裏面文字入れ例:第77回　富士見会ゴルフコンペ・平成27年　東京商会　社長杯・銀座高校OB杯　など）
 
 
-      input(type="text" name="text_ura")
+      input(type="text" name="nametag_ura_name")
 
 
 
@@ -139,15 +149,19 @@
       .optionSelector.--column-2
 
         .optionSelector__item
-          .thumbnailBox
-            h3.thumbnailBox__title 黒
-            img.thumbnailBox__image(src="/assets/nametag_belt_black.png")
+          label
+            input.optionSelector__radio(type="radio" name="nametag_belt" value="black" checked)
+            .thumbnailBox
+              h3.thumbnailBox__title 黒
+              img.thumbnailBox__image(src="/assets/nametag_belt_black.png")
 
 
         .optionSelector__item
-          .thumbnailBox
-            h3.thumbnailBox__title 白
-            img.thumbnailBox__image(src="/assets/nametag_belt_white.png")
+          label
+            input.optionSelector__radio(type="radio" name="nametag_belt" value="white")
+            .thumbnailBox
+              h3.thumbnailBox__title 白
+              img.thumbnailBox__image(src="/assets/nametag_belt_white.png")
 
 
 
@@ -172,9 +186,57 @@
         br
         | 「カートに入れてご注文」ボタンで、お買い物を終了しすぐに商品をご注文できます。
             
-      button(type="submit" name = "submit" value="go_cart") カートに入れる
-      button(type="submit" name = "submit" value="go_cart") すぐに注文
+      = number_field_tag :quantity, 1, class: 'title', min: 1 
 
+      button(type="submit" name = "submit" value="go_cart") カートに入れる
+
+      #button(type="submit" name = "submit" value="go_cart") すぐに注文
+
+
+      pre
+        = @product.option_types_name_array.to_json.html_safe 
+        = @product.variant_options_hash.to_json.html_safe 
     
+      javascript:
+        var option_type_names = #{ @product.option_types_name_array.to_json.html_safe }
+        var variant_options = #{ @product.variant_options_hash.to_json.html_safe }
+
+
+        $(function(){
+          var form = $("#orderform");
+          var addToCartButton = $("#add-to-cart-button");
+
+        
+          var radio_buttons= $(".optionSelector__radio");
+
+          console.log(radio_buttons)
+
+          radio_buttons.change(function(e){
+
+            //フォームのデータの配列
+            var serialized_form = form.serializeArray();
+            //option_typeでフィルタリングする
+            var filtered_serialized_form = _(serialized_form).filter(function(el){
+              return _(option_type_names).contains(el.name)
+            });
+
+            
+            //形式を変換
+            var input_option_value = {};
+            _(filtered_serialized_form).each(function(el){
+              input_option_value[el.name] = el.value;
+            });
+
+            //variant一覧のなかから、一致するものをGETする
+            var found_variant = _(variant_options).find(function(vo){
+              //vo.options と input_option_value のすべての値が等しい
+              return JSON.stringify(vo.options) == JSON.stringify(input_option_value);
+            });
+
+            //hidden_tagの値に入れる
+            $("#variant_id").val(found_variant.variant_id);
+          });
+
+        });
 
 
