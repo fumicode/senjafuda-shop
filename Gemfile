@@ -34,7 +34,6 @@ gem 'underscore-rails'
 gem 'solidus'
 gem 'solidus_auth_devise'
 
-#gem 'slim'
 gem 'slim-rails'
 
 
