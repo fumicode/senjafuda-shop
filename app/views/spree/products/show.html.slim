@@ -26,7 +26,8 @@
 
     = form_for :order, url: populate_orders_path, html:{id:"orderform"} do |f| 
 
-      = hidden_field_tag "variant_id", "21"
+      = hidden_field_tag "type", "Spree::NametagLineItem"
+      = hidden_field_tag "variant_id"
 
       table.flowTitle
         tr
@@ -211,8 +212,10 @@
 
           console.log(radio_buttons)
 
-          radio_buttons.change(function(e){
 
+          radio_buttons.change(identifyVariant);
+
+          function identifyVariant(e){
             //フォームのデータの配列
             var serialized_form = form.serializeArray();
             //option_typeでフィルタリングする
@@ -235,8 +238,12 @@
 
             //hidden_tagの値に入れる
             $("#variant_id").val(found_variant.variant_id);
-          });
+          }
+
+
+          identifyVariant();
 
         });
+
 
 
