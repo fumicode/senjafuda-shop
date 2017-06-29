@@ -1,37 +1,12 @@
-Spree::Price.create!([
-  {variant_id: 1, amount: "15.99", currency: "USD", deleted_at: nil, country_iso: nil},
-  {variant_id: 1, amount: "14.0", currency: "EUR", deleted_at: nil, country_iso: nil},
-  {variant_id: 2, amount: "22.99", currency: "USD", deleted_at: nil, country_iso: nil},
-  {variant_id: 2, amount: "19.0", currency: "EUR", deleted_at: nil, country_iso: nil},
-  {variant_id: 3, amount: "19.99", currency: "USD", deleted_at: nil, country_iso: nil},
-  {variant_id: 3, amount: "16.0", currency: "EUR", deleted_at: nil, country_iso: nil},
-  {variant_id: 4, amount: "19.99", currency: "USD", deleted_at: nil, country_iso: nil},
-  {variant_id: 4, amount: "16.0", currency: "EUR", deleted_at: nil, country_iso: nil},
-  {variant_id: 5, amount: "19.99", currency: "USD", deleted_at: nil, country_iso: nil},
-  {variant_id: 5, amount: "16.0", currency: "EUR", deleted_at: nil, country_iso: nil},
-  {variant_id: 6, amount: "19.99", currency: "USD", deleted_at: nil, country_iso: nil},
-  {variant_id: 6, amount: "16.0", currency: "EUR", deleted_at: nil, country_iso: nil},
-  {variant_id: 7, amount: "19.99", currency: "USD", deleted_at: nil, country_iso: nil},
-  {variant_id: 7, amount: "16.0", currency: "EUR", deleted_at: nil, country_iso: nil},
-  {variant_id: 8, amount: "13.99", currency: "USD", deleted_at: nil, country_iso: nil},
-  {variant_id: 8, amount: "12.0", currency: "EUR", deleted_at: nil, country_iso: nil},
-  {variant_id: 9, amount: "16.99", currency: "USD", deleted_at: nil, country_iso: nil},
-  {variant_id: 9, amount: "14.0", currency: "EUR", deleted_at: nil, country_iso: nil},
-  {variant_id: 10, amount: "19.99", currency: "USD", deleted_at: nil, country_iso: nil},
-  {variant_id: 11, amount: "19.99", currency: "USD", deleted_at: nil, country_iso: nil},
-  {variant_id: 12, amount: "19.99", currency: "USD", deleted_at: nil, country_iso: nil},
-  {variant_id: 13, amount: "19.99", currency: "USD", deleted_at: nil, country_iso: nil},
-  {variant_id: 14, amount: "19.99", currency: "USD", deleted_at: nil, country_iso: nil},
-  {variant_id: 15, amount: "19.99", currency: "USD", deleted_at: nil, country_iso: nil},
-  {variant_id: 16, amount: "19.99", currency: "USD", deleted_at: nil, country_iso: nil},
-  {variant_id: 17, amount: "19.99", currency: "USD", deleted_at: nil, country_iso: nil},
-  {variant_id: 18, amount: "19.99", currency: "USD", deleted_at: nil, country_iso: nil},
-  {variant_id: 19, amount: "19.99", currency: "USD", deleted_at: nil, country_iso: nil},
-  {variant_id: 20, amount: "2500.0", currency: "USD", deleted_at: nil, country_iso: nil},
-  {variant_id: 21, amount: "3500.0", currency: "USD", deleted_at: nil, country_iso: nil},
-  {variant_id: 22, amount: "2500.0", currency: "USD", deleted_at: nil, country_iso: nil},
-  {variant_id: 23, amount: "4000.0", currency: "USD", deleted_at: nil, country_iso: nil},
-  {variant_id: 24, amount: "5000.0", currency: "USD", deleted_at: nil, country_iso: nil},
-  {variant_id: 25, amount: "2500.0", currency: "USD", deleted_at: nil, country_iso: nil},
-  {variant_id: 26, amount: "2500.0", currency: "USD", deleted_at: nil, country_iso: nil}
-])
+# This file should contain all the record creation needed to seed the database with its default values.
+# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
+#
+# Examples:
+#
+#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+#   Character.create(name: 'Luke', movie: movies.first)
+
+
+Spree::Core::Engine.load_seed if defined?(Spree::Core)
+Spree::Auth::Engine.load_seed if defined?(Spree::Auth)
+
