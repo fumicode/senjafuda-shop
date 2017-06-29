@@ -1,82 +1,37 @@
-FriendlyId::Slug.create!([
-  {slug: "ruby-on-rails-tote", sluggable_id: 1, sluggable_type: "Spree::Product", scope: nil},
-  {slug: "ruby-on-rails-bag", sluggable_id: 2, sluggable_type: "Spree::Product", scope: nil},
-  {slug: "ruby-on-rails-baseball-jersey", sluggable_id: 3, sluggable_type: "Spree::Product", scope: nil},
-  {slug: "ruby-on-rails-jr-spaghetti", sluggable_id: 4, sluggable_type: "Spree::Product", scope: nil},
-  {slug: "ruby-on-rails-ringer-t-shirt", sluggable_id: 5, sluggable_type: "Spree::Product", scope: nil},
-  {slug: "ruby-baseball-jersey", sluggable_id: 6, sluggable_type: "Spree::Product", scope: nil},
-  {slug: "apache-baseball-jersey", sluggable_id: 7, sluggable_type: "Spree::Product", scope: nil},
-  {slug: "ruby-on-rails-mug", sluggable_id: 8, sluggable_type: "Spree::Product", scope: nil},
-  {slug: "ruby-on-rails-stein", sluggable_id: 9, sluggable_type: "Spree::Product", scope: nil},
-  {slug: "df278f38-7e35-48f5-ac8d-c23df487a05a", sluggable_id: 10, sluggable_type: "Spree::Product", scope: nil}
-])
-Spree::Payment.create!([
-  {amount: "0.0", order_id: 1, source_type: nil, source_id: nil, payment_method_id: 3, state: "checkout", response_code: nil, avs_response: nil, number: "C8BCXFN6", cvv_response_code: nil, cvv_response_message: nil},
-  {amount: "0.0", order_id: 2, source_type: nil, source_id: nil, payment_method_id: 3, state: "checkout", response_code: nil, avs_response: nil, number: "RYPGGQVL", cvv_response_code: nil, cvv_response_message: nil},
-  {amount: "22.04", order_id: 1, source_type: "Spree::CreditCard", source_id: 1, payment_method_id: 2, state: "pending", response_code: "12345", avs_response: nil, number: "CFFNU62P", cvv_response_code: nil, cvv_response_message: nil},
-  {amount: "29.39", order_id: 2, source_type: "Spree::CreditCard", source_id: 1, payment_method_id: 2, state: "pending", response_code: "12345", avs_response: nil, number: "CUUU5PZK", cvv_response_code: nil, cvv_response_message: nil}
-])
-Spree::Order.create!([
-  {number: "R123456789", item_total: "15.99", total: "22.04", state: "complete", adjustment_total: "1.05", user_id: nil, completed_at: "2017-06-23 02:54:20", bill_address_id: 2, ship_address_id: 1, payment_total: "0.0", shipment_state: "pending", payment_state: "balance_due", email: "spree@example.com", special_instructions: nil, currency: "USD", last_ip_address: nil, created_by_id: nil, shipment_total: "5.0", additional_tax_total: "1.05", promo_total: "0.0", channel: "spree", included_tax_total: "0.0", item_count: 1, approver_id: nil, approved_at: nil, confirmation_delivered: true, guest_token: "quYv3CWW2lLvT-LwXlWcPw", canceled_at: nil, canceler_id: nil, store_id: 1, approver_name: nil, frontend_viewable: true},
-  {number: "R987654321", item_total: "22.99", total: "29.39", state: "complete", adjustment_total: "1.4", user_id: nil, completed_at: "2017-06-23 02:54:24", bill_address_id: 2, ship_address_id: 1, payment_total: "0.0", shipment_state: "pending", payment_state: "balance_due", email: "spree@example.com", special_instructions: nil, currency: "USD", last_ip_address: nil, created_by_id: nil, shipment_total: "5.0", additional_tax_total: "1.4", promo_total: "0.0", channel: "spree", included_tax_total: "0.0", item_count: 1, approver_id: nil, approved_at: nil, confirmation_delivered: true, guest_token: "WOONTKUTxeeIqQnlqhBZtA", canceled_at: nil, canceler_id: nil, store_id: 1, approver_name: nil, frontend_viewable: true},
-  {number: "R264802578", item_total: "2522.99", total: "2522.99", state: "address", adjustment_total: "0.0", user_id: 2, completed_at: nil, bill_address_id: nil, ship_address_id: nil, payment_total: "0.0", shipment_state: nil, payment_state: nil, email: "icymasa@gmail.com", special_instructions: nil, currency: "USD", last_ip_address: "192.168.33.1", created_by_id: 2, shipment_total: "0.0", additional_tax_total: "0.0", promo_total: "0.0", channel: "spree", included_tax_total: "0.0", item_count: 2, approver_id: nil, approved_at: nil, confirmation_delivered: false, guest_token: "OU7z3Z05JVU-9Pa9ziAKCA", canceled_at: nil, canceler_id: nil, store_id: 1, approver_name: nil, frontend_viewable: true}
-])
-Spree::Variant.create!([
-  {sku: "ROR-00011", weight: "0.0", height: nil, width: nil, depth: nil, deleted_at: nil, is_master: true, product_id: 1, cost_price: "17.0", cost_currency: "USD", position: 1, track_inventory: true, tax_category_id: nil},
-  {sku: "ROR-00012", weight: "0.0", height: nil, width: nil, depth: nil, deleted_at: nil, is_master: true, product_id: 2, cost_price: "21.0", cost_currency: "USD", position: 1, track_inventory: true, tax_category_id: nil},
-  {sku: "ROR-001", weight: "0.0", height: nil, width: nil, depth: nil, deleted_at: nil, is_master: true, product_id: 3, cost_price: "17.0", cost_currency: "USD", position: 1, track_inventory: true, tax_category_id: nil},
-  {sku: "ROR-00013", weight: "0.0", height: nil, width: nil, depth: nil, deleted_at: nil, is_master: true, product_id: 4, cost_price: "17.0", cost_currency: "USD", position: 1, track_inventory: true, tax_category_id: nil},
-  {sku: "ROR-00015", weight: "0.0", height: nil, width: nil, depth: nil, deleted_at: nil, is_master: true, product_id: 5, cost_price: "17.0", cost_currency: "USD", position: 1, track_inventory: true, tax_category_id: nil},
-  {sku: "RUB-00001", weight: "0.0", height: nil, width: nil, depth: nil, deleted_at: nil, is_master: true, product_id: 6, cost_price: "17.0", cost_currency: "USD", position: 1, track_inventory: true, tax_category_id: nil},
-  {sku: "APC-00001", weight: "0.0", height: nil, width: nil, depth: nil, deleted_at: nil, is_master: true, product_id: 7, cost_price: "17.0", cost_currency: "USD", position: 1, track_inventory: true, tax_category_id: nil},
-  {sku: "ROR-00014", weight: "0.0", height: nil, width: nil, depth: nil, deleted_at: nil, is_master: true, product_id: 8, cost_price: "11.0", cost_currency: "USD", position: 1, track_inventory: true, tax_category_id: nil},
-  {sku: "ROR-00016", weight: "0.0", height: nil, width: nil, depth: nil, deleted_at: nil, is_master: true, product_id: 9, cost_price: "15.0", cost_currency: "USD", position: 1, track_inventory: true, tax_category_id: nil},
-  {sku: "ROR-00001", weight: "0.0", height: nil, width: nil, depth: nil, deleted_at: nil, is_master: false, product_id: 3, cost_price: "17.0", cost_currency: "USD", position: 3, track_inventory: true, tax_category_id: nil},
-  {sku: "ROR-00002", weight: "0.0", height: nil, width: nil, depth: nil, deleted_at: nil, is_master: false, product_id: 3, cost_price: "17.0", cost_currency: "USD", position: 5, track_inventory: true, tax_category_id: nil},
-  {sku: "ROR-00003", weight: "0.0", height: nil, width: nil, depth: nil, deleted_at: nil, is_master: false, product_id: 3, cost_price: "17.0", cost_currency: "USD", position: 7, track_inventory: true, tax_category_id: nil},
-  {sku: "ROR-00004", weight: "0.0", height: nil, width: nil, depth: nil, deleted_at: nil, is_master: false, product_id: 3, cost_price: "17.0", cost_currency: "USD", position: 9, track_inventory: true, tax_category_id: nil},
-  {sku: "ROR-00005", weight: "0.0", height: nil, width: nil, depth: nil, deleted_at: nil, is_master: false, product_id: 3, cost_price: "17.0", cost_currency: "USD", position: 11, track_inventory: true, tax_category_id: nil},
-  {sku: "ROR-00006", weight: "0.0", height: nil, width: nil, depth: nil, deleted_at: nil, is_master: false, product_id: 3, cost_price: "17.0", cost_currency: "USD", position: 13, track_inventory: true, tax_category_id: nil},
-  {sku: "ROR-00007", weight: "0.0", height: nil, width: nil, depth: nil, deleted_at: nil, is_master: false, product_id: 3, cost_price: "17.0", cost_currency: "USD", position: 15, track_inventory: true, tax_category_id: nil},
-  {sku: "ROR-00008", weight: "0.0", height: nil, width: nil, depth: nil, deleted_at: nil, is_master: false, product_id: 3, cost_price: "17.0", cost_currency: "USD", position: 17, track_inventory: true, tax_category_id: nil},
-  {sku: "ROR-00009", weight: "0.0", height: nil, width: nil, depth: nil, deleted_at: nil, is_master: false, product_id: 3, cost_price: "17.0", cost_currency: "USD", position: 19, track_inventory: true, tax_category_id: nil},
-  {sku: "ROR-00010", weight: "0.0", height: nil, width: nil, depth: nil, deleted_at: nil, is_master: false, product_id: 3, cost_price: "17.0", cost_currency: "USD", position: 21, track_inventory: true, tax_category_id: nil},
-  {sku: "", weight: "0.0", height: nil, width: nil, depth: nil, deleted_at: nil, is_master: true, product_id: 10, cost_price: nil, cost_currency: "USD", position: 1, track_inventory: true, tax_category_id: nil},
-  {sku: "", weight: "0.0", height: nil, width: nil, depth: nil, deleted_at: nil, is_master: false, product_id: 10, cost_price: nil, cost_currency: "USD", position: 3, track_inventory: true, tax_category_id: nil},
-  {sku: "", weight: "0.0", height: nil, width: nil, depth: nil, deleted_at: nil, is_master: false, product_id: 10, cost_price: nil, cost_currency: "USD", position: 5, track_inventory: true, tax_category_id: nil},
-  {sku: "", weight: "0.0", height: nil, width: nil, depth: nil, deleted_at: nil, is_master: false, product_id: 10, cost_price: nil, cost_currency: "USD", position: 7, track_inventory: true, tax_category_id: nil},
-  {sku: "", weight: "0.0", height: nil, width: nil, depth: nil, deleted_at: nil, is_master: false, product_id: 10, cost_price: nil, cost_currency: "USD", position: 9, track_inventory: true, tax_category_id: nil},
-  {sku: "", weight: "0.0", height: nil, width: nil, depth: nil, deleted_at: nil, is_master: false, product_id: 10, cost_price: nil, cost_currency: "USD", position: 11, track_inventory: true, tax_category_id: nil},
-  {sku: "", weight: "0.0", height: nil, width: nil, depth: nil, deleted_at: nil, is_master: false, product_id: 10, cost_price: nil, cost_currency: "USD", position: 13, track_inventory: true, tax_category_id: nil}
-])
-Spree::Product.create!([
-  {name: "Ruby on Rails Tote", description: "Eius quisquam quo incidunt sint ut consequatur et eos. Nihil tempore cupiditate delectus et amet non aliquam. Quam quisquam voluptas dicta minima id laborum qui.", available_on: "2017-06-23 02:53:58", deleted_at: nil, slug: "ruby-on-rails-tote", meta_description: nil, meta_keywords: nil, tax_category_id: 1, shipping_category_id: 1, promotionable: true, meta_title: nil, type: nil},
-  {name: "Ruby on Rails Bag", description: "Eius quisquam quo incidunt sint ut consequatur et eos. Nihil tempore cupiditate delectus et amet non aliquam. Quam quisquam voluptas dicta minima id laborum qui.", available_on: "2017-06-23 02:53:58", deleted_at: nil, slug: "ruby-on-rails-bag", meta_description: nil, meta_keywords: nil, tax_category_id: 1, shipping_category_id: 1, promotionable: true, meta_title: nil, type: nil},
-  {name: "Ruby on Rails Baseball Jersey", description: "Eius quisquam quo incidunt sint ut consequatur et eos. Nihil tempore cupiditate delectus et amet non aliquam. Quam quisquam voluptas dicta minima id laborum qui.", available_on: "2017-06-23 02:53:58", deleted_at: nil, slug: "ruby-on-rails-baseball-jersey", meta_description: nil, meta_keywords: nil, tax_category_id: 1, shipping_category_id: 1, promotionable: true, meta_title: nil, type: nil},
-  {name: "Ruby on Rails Jr. Spaghetti", description: "Eius quisquam quo incidunt sint ut consequatur et eos. Nihil tempore cupiditate delectus et amet non aliquam. Quam quisquam voluptas dicta minima id laborum qui.", available_on: "2017-06-23 02:53:58", deleted_at: nil, slug: "ruby-on-rails-jr-spaghetti", meta_description: nil, meta_keywords: nil, tax_category_id: 1, shipping_category_id: 1, promotionable: true, meta_title: nil, type: nil},
-  {name: "Ruby on Rails Ringer T-Shirt", description: "Eius quisquam quo incidunt sint ut consequatur et eos. Nihil tempore cupiditate delectus et amet non aliquam. Quam quisquam voluptas dicta minima id laborum qui.", available_on: "2017-06-23 02:53:58", deleted_at: nil, slug: "ruby-on-rails-ringer-t-shirt", meta_description: nil, meta_keywords: nil, tax_category_id: 1, shipping_category_id: 1, promotionable: true, meta_title: nil, type: nil},
-  {name: "Ruby Baseball Jersey", description: "Eius quisquam quo incidunt sint ut consequatur et eos. Nihil tempore cupiditate delectus et amet non aliquam. Quam quisquam voluptas dicta minima id laborum qui.", available_on: "2017-06-23 02:53:58", deleted_at: nil, slug: "ruby-baseball-jersey", meta_description: nil, meta_keywords: nil, tax_category_id: 1, shipping_category_id: 1, promotionable: true, meta_title: nil, type: nil},
-  {name: "Apache Baseball Jersey", description: "Eius quisquam quo incidunt sint ut consequatur et eos. Nihil tempore cupiditate delectus et amet non aliquam. Quam quisquam voluptas dicta minima id laborum qui.", available_on: "2017-06-23 02:53:58", deleted_at: nil, slug: "apache-baseball-jersey", meta_description: nil, meta_keywords: nil, tax_category_id: 1, shipping_category_id: 1, promotionable: true, meta_title: nil, type: nil},
-  {name: "Ruby on Rails Mug", description: "Eius quisquam quo incidunt sint ut consequatur et eos. Nihil tempore cupiditate delectus et amet non aliquam. Quam quisquam voluptas dicta minima id laborum qui.", available_on: "2017-06-23 02:53:58", deleted_at: nil, slug: "ruby-on-rails-mug", meta_description: nil, meta_keywords: nil, tax_category_id: nil, shipping_category_id: 1, promotionable: true, meta_title: nil, type: nil},
-  {name: "Ruby on Rails Stein", description: "Eius quisquam quo incidunt sint ut consequatur et eos. Nihil tempore cupiditate delectus et amet non aliquam. Quam quisquam voluptas dicta minima id laborum qui.", available_on: "2017-06-23 02:53:58", deleted_at: nil, slug: "ruby-on-rails-stein", meta_description: nil, meta_keywords: nil, tax_category_id: nil, shipping_category_id: 1, promotionable: true, meta_title: nil, type: nil},
-  {name: "ネームタグ", description: "", available_on: "2017-06-27 00:00:00", deleted_at: nil, slug: "df278f38-7e35-48f5-ac8d-c23df487a05a", meta_description: "", meta_keywords: "", tax_category_id: 1, shipping_category_id: 1, promotionable: true, meta_title: "", type: "NametagProduct"}
-])
-Spree::LineItem.create!([
-  {variant_id: 1, order_id: 1, quantity: 1, price: "15.99", cost_price: "17.0", tax_category_id: 1, adjustment_total: "0.8", additional_tax_total: "0.8", promo_total: "0.0", included_tax_total: "0.0", nametag_name: nil, nametag_ura_name: nil, nametag_belt: nil, type: nil},
-  {variant_id: 2, order_id: 2, quantity: 1, price: "22.99", cost_price: "21.0", tax_category_id: 1, adjustment_total: "1.15", additional_tax_total: "1.15", promo_total: "0.0", included_tax_total: "0.0", nametag_name: nil, nametag_ura_name: nil, nametag_belt: nil, type: nil},
-  {variant_id: 2, order_id: 3, quantity: 1, price: "22.99", cost_price: "21.0", tax_category_id: 1, adjustment_total: "0.0", additional_tax_total: "0.0", promo_total: "0.0", included_tax_total: "0.0", nametag_name: nil, nametag_ura_name: nil, nametag_belt: nil, type: nil},
-  {variant_id: 22, order_id: 3, quantity: 1, price: "2500.0", cost_price: nil, tax_category_id: 1, adjustment_total: "0.0", additional_tax_total: "0.0", promo_total: "0.0", included_tax_total: "0.0", nametag_name: "kkl", nametag_ura_name: "gg", nametag_belt: "black", type: "NametagLineItem"}
-])
-Spree::User.create!([
-  {encrypted_password: "18685733ae5fc1fa375d709c336a5cfa4951747bad7e15825d04bdae85b3a8299717219b187a37a4c581f5a88bb5b03579a03214d8b3d50d812e32ec902d2b6a", password_salt: "frjtyu_j-QLju4ohzGLA", email: "admin@example.com", remember_token: nil, persistence_token: nil, reset_password_token: nil, perishable_token: nil, sign_in_count: 0, failed_attempts: 0, last_request_at: nil, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil, login: "admin@example.com", ship_address_id: nil, bill_address_id: nil, authentication_token: nil, unlock_token: nil, locked_at: nil, reset_password_sent_at: nil, spree_api_key: "71200c7a6b67591073bb25f546bf4de5c3ee37a1e5ea7e20", remember_created_at: nil, deleted_at: nil, confirmation_token: nil, confirmed_at: nil, confirmation_sent_at: nil},
-  {encrypted_password: "c04e21d1dc74754ac6afb0421f2fc5e16139c6d0d28a057cb6ce004ae33e38d08c57d84b24cfb89bcf05bcf6d3f35425ffb96465d4ef4df1f79002d927802952", password_salt: "se2oGofyKs9fCuJWdaU9", email: "icymasa@gmail.com", remember_token: "aJweriygW6ZEkAJf8TDb", persistence_token: nil, reset_password_token: nil, perishable_token: nil, sign_in_count: 4, failed_attempts: 0, last_request_at: nil, current_sign_in_at: "2017-06-28 23:35:07", last_sign_in_at: "2017-06-28 03:21:56", current_sign_in_ip: "192.168.33.1", last_sign_in_ip: "192.168.33.1", login: "icymasa@gmail.com", ship_address_id: nil, bill_address_id: nil, authentication_token: nil, unlock_token: nil, locked_at: nil, reset_password_sent_at: nil, spree_api_key: "71200c7a6b67591073bb25f546bf4de5c3ee37a1e5ea7e20", remember_created_at: "2017-06-28 03:21:56", deleted_at: nil, confirmation_token: nil, confirmed_at: nil, confirmation_sent_at: nil}
-])
-Spree::Role.create!([
-  {name: "admin"}
-])
-NametagProduct.create!([
-  {name: "ネームタグ", description: "", available_on: "2017-06-27 00:00:00", deleted_at: nil, slug: "df278f38-7e35-48f5-ac8d-c23df487a05a", meta_description: "", meta_keywords: "", tax_category_id: 1, shipping_category_id: 1, promotionable: true, meta_title: "", type: "NametagProduct"}
-])
-NametagLineItem.create!([
-  {variant_id: 22, order_id: 3, quantity: 1, price: "2500.0", cost_price: nil, tax_category_id: 1, adjustment_total: "0.0", additional_tax_total: "0.0", promo_total: "0.0", included_tax_total: "0.0", nametag_name: "kkl", nametag_ura_name: "gg", nametag_belt: "black", type: "NametagLineItem"}
+Spree::Price.create!([
+  {variant_id: 1, amount: "15.99", currency: "USD", deleted_at: nil, country_iso: nil},
+  {variant_id: 1, amount: "14.0", currency: "EUR", deleted_at: nil, country_iso: nil},
+  {variant_id: 2, amount: "22.99", currency: "USD", deleted_at: nil, country_iso: nil},
+  {variant_id: 2, amount: "19.0", currency: "EUR", deleted_at: nil, country_iso: nil},
+  {variant_id: 3, amount: "19.99", currency: "USD", deleted_at: nil, country_iso: nil},
+  {variant_id: 3, amount: "16.0", currency: "EUR", deleted_at: nil, country_iso: nil},
+  {variant_id: 4, amount: "19.99", currency: "USD", deleted_at: nil, country_iso: nil},
+  {variant_id: 4, amount: "16.0", currency: "EUR", deleted_at: nil, country_iso: nil},
+  {variant_id: 5, amount: "19.99", currency: "USD", deleted_at: nil, country_iso: nil},
+  {variant_id: 5, amount: "16.0", currency: "EUR", deleted_at: nil, country_iso: nil},
+  {variant_id: 6, amount: "19.99", currency: "USD", deleted_at: nil, country_iso: nil},
+  {variant_id: 6, amount: "16.0", currency: "EUR", deleted_at: nil, country_iso: nil},
+  {variant_id: 7, amount: "19.99", currency: "USD", deleted_at: nil, country_iso: nil},
+  {variant_id: 7, amount: "16.0", currency: "EUR", deleted_at: nil, country_iso: nil},
+  {variant_id: 8, amount: "13.99", currency: "USD", deleted_at: nil, country_iso: nil},
+  {variant_id: 8, amount: "12.0", currency: "EUR", deleted_at: nil, country_iso: nil},
+  {variant_id: 9, amount: "16.99", currency: "USD", deleted_at: nil, country_iso: nil},
+  {variant_id: 9, amount: "14.0", currency: "EUR", deleted_at: nil, country_iso: nil},
+  {variant_id: 10, amount: "19.99", currency: "USD", deleted_at: nil, country_iso: nil},
+  {variant_id: 11, amount: "19.99", currency: "USD", deleted_at: nil, country_iso: nil},
+  {variant_id: 12, amount: "19.99", currency: "USD", deleted_at: nil, country_iso: nil},
+  {variant_id: 13, amount: "19.99", currency: "USD", deleted_at: nil, country_iso: nil},
+  {variant_id: 14, amount: "19.99", currency: "USD", deleted_at: nil, country_iso: nil},
+  {variant_id: 15, amount: "19.99", currency: "USD", deleted_at: nil, country_iso: nil},
+  {variant_id: 16, amount: "19.99", currency: "USD", deleted_at: nil, country_iso: nil},
+  {variant_id: 17, amount: "19.99", currency: "USD", deleted_at: nil, country_iso: nil},
+  {variant_id: 18, amount: "19.99", currency: "USD", deleted_at: nil, country_iso: nil},
+  {variant_id: 19, amount: "19.99", currency: "USD", deleted_at: nil, country_iso: nil},
+  {variant_id: 20, amount: "2500.0", currency: "USD", deleted_at: nil, country_iso: nil},
+  {variant_id: 21, amount: "3500.0", currency: "USD", deleted_at: nil, country_iso: nil},
+  {variant_id: 22, amount: "2500.0", currency: "USD", deleted_at: nil, country_iso: nil},
+  {variant_id: 23, amount: "4000.0", currency: "USD", deleted_at: nil, country_iso: nil},
+  {variant_id: 24, amount: "5000.0", currency: "USD", deleted_at: nil, country_iso: nil},
+  {variant_id: 25, amount: "2500.0", currency: "USD", deleted_at: nil, country_iso: nil},
+  {variant_id: 26, amount: "2500.0", currency: "USD", deleted_at: nil, country_iso: nil}
 ])
