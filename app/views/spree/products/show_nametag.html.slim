@@ -1,7 +1,5 @@
 .contentBox.--green
   .articleContent
-    h2
-      = @product.class.to_s
     h1 ネームタグご注文ページ
     img(src="/assets/nametag_top.png" alt="ゴルフネームタグ" style="width:100%")
 
@@ -46,7 +44,8 @@
           label
             input.optionSelector__radio(type="radio" name="nametag-material" value="sakura" checked)
             .thumbnailBox
-              h3.thumbnailBox__title 桜
+              h3.thumbnailBox__title 
+                img.thumbnailBox__titleImage(src="/assets/nametag_title_sakura.png" alt="桜" title="桜")
               p.thumbnailBox__exp 文字くっきり
               img.thumbnailBox__image(src="/assets/nametag_sakura.jpg")
               .thumbnailBox__price 2000円
@@ -55,7 +54,8 @@
           label
             input.optionSelector__radio(type="radio" name="nametag-material" value="shitan")
             .thumbnailBox
-              h3.thumbnailBox__title 紫檀
+              h3.thumbnailBox__title 
+                img.thumbnailBox__titleImage(src="/assets/nametag_title_shitan.png" alt="紫檀" title="紫檀")
 
               p.thumbnailBox__exp 渋さと文字の両立
               img.thumbnailBox__image(src="/assets/nametag_shitan.jpg")
@@ -65,7 +65,9 @@
           label
             input.optionSelector__radio(type="radio" name="nametag-material" value="kokutan")
             .thumbnailBox
-              h3.thumbnailBox__title 黒檀
+              h3.thumbnailBox__title 
+                img.thumbnailBox__titleImage(src="/assets/nametag_title_kokutan.png" alt="黒檀" title="黒檀")
+
               p.thumbnailBox__exp とことん粋な渋さ
               img.thumbnailBox__image(src="/assets/nametag_kokutan.jpg")
 
@@ -265,6 +267,12 @@
                 breakpoint: 600,
                 settings: {
                   centerPadding:"80px",
+                }
+              },
+              {
+                breakpoint: 320,
+                settings: {
+                  centerPadding:"30px",
                 }
               }
             ]
