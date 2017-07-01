@@ -22,8 +22,9 @@ Spree::ProductsController.class_eval do
     p @product.class
     p NametagProduct 
 
-    if @product.class == NametagProduct then
-      render :layout => "/layouts/senjafuda_layout", :template => "/spree/products/show_nametag"
+    if @product.class != Spree::Product  then
+      view_path = @product.class.to_s.sub!(/Product/, "").underscore
+      render :layout => "/layouts/senjafuda_layout", :template => "/spree/products/show_#{view_path}"
     else
       render :template => "/spree/products/show"
     end
