@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170628091059) do
+ActiveRecord::Schema.define(version: 20170705014040) do
 
   create_table "friendly_id_slugs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "slug",                      null: false
@@ -440,6 +440,11 @@ ActiveRecord::Schema.define(version: 20170628091059) do
     t.boolean  "promotionable",                      default: true
     t.string   "meta_title"
     t.string   "type"
+    t.string   "kenkafuda_moji"
+    t.string   "kenkafuda_ura_moji"
+    t.string   "kenkafuda_tanzaku"
+    t.string   "kenkafuda_kamon"
+    t.string   "kenkafuda_himo"
     t.index ["available_on"], name: "index_spree_products_on_available_on", using: :btree
     t.index ["deleted_at"], name: "index_spree_products_on_deleted_at", using: :btree
     t.index ["name"], name: "index_spree_products_on_name", using: :btree
