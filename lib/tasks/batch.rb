@@ -1,5 +1,6 @@
 class Tasks::Batch
   def self.execute
+
     sugi = Spree::OptionValue.new({option_type_id: 3, presentation: "aaa",  name: "test"})
     sugi.save!
 
@@ -8,6 +9,10 @@ class Tasks::Batch
 
   def self.create
     p "hello"
+    product = Spree::Product.find( 11)
+    product.option_types.each do |type|
+      p type.option_values.to_a
+    end
     vari = Spree::Variant.new({product_id: 11})
 
     vari.save!
