@@ -1,13 +1,5 @@
 class Tasks::Batch
   def self.execute
-    sugi = Spree::OptionValue.new({option_type_id: 3, presentation: "aaa",  name: "test"})
-    sugi.save!
-
-    p "Hello world"
-  end
-
-  def self.create
-    p "hello"
     product_id = 11
 
     product = Spree::Product.find( product_id )
@@ -60,5 +52,4 @@ class Tasks::Batch
       
     end
 =end
-
 end
