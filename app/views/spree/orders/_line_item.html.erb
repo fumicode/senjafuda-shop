@@ -11,7 +11,10 @@
     <td class="cart-item-description" data-hook="cart_item_description">
       <h4><%= link_to line_item.name, product_path(variant.product) %></h4>
       <%= variant.options_text %>
-      <%= "名前: %s, 裏面文字: %s, ベルト:%s" % [ line_item.nametag_name,line_item.nametag_ura_name, line_item.nametag_belt ] %>
+      <br> 
+
+      <%= line_item.specific_attributes_str %>
+
       <% if line_item.insufficient_stock? %>
         <span class="out-of-stock">
           <%= Spree.t(:out_of_stock) %>&nbsp;&nbsp;<br />

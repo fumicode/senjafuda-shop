@@ -1,8 +1,9 @@
 Spree::LineItem.class_eval do
+  # 結局なにも変えてない？
+  #
   def options=(options = {})
     return unless options.present?
-    p "LineItem Options"
-    p options
+
     assign_attributes options
 
     # When price is part of the options we are not going to fetch
@@ -13,4 +14,18 @@ Spree::LineItem.class_eval do
       self.money_price = variant.price_for(pricing_options)
     end
   end
+
+
+  def specific_attributes_str
+    array = specific_attributes.map do |key, value|
+      "%s: %s" % [key , value] 
+    end
+
+    array.join(",")
+  end
+
+  def specific_attributes
+    {}
+  end
+
 end

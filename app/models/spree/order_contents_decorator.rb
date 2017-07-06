@@ -14,11 +14,10 @@ Spree::OrderContents.class_eval do
     p options
     line_item ||= order.line_items.new(
       quantity: 0,
-      variant: variant
+      variant: variant,
+      type: options[:type] || nil
     )
 
-    #line_item.options=options <= これが、validationなしにoptionsに渡してたのが悪かった。
-    
     line_item.quantity += quantity.to_i
     line_item.options = ActionController::Parameters.new(options).permit(Spree::PermittedAttributes.line_item_attributes).to_h
 

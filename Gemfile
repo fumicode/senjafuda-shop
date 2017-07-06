@@ -34,10 +34,11 @@ gem 'underscore-rails'
 gem 'solidus'
 gem 'solidus_auth_devise'
 
-#gem 'slim'
 gem 'slim-rails'
 
+gem 'seed_dump'
 
+gem 'react-rails'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
