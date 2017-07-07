@@ -1,7 +1,5 @@
 .contentBox.--green
   .articleContent
-    h2
-      = @product.class.to_s
     h1 ネームタグご注文ページ
     img(src="/assets/nametag_top.png" alt="ゴルフネームタグ" style="width:100%")
 
@@ -46,28 +44,32 @@
           label
             input.optionSelector__radio(type="radio" name="nametag-material" value="sakura" checked)
             .thumbnailBox
-              h3.thumbnailBox__title 桜
+              h3.thumbnailBox__title 
+                img.thumbnailBox__titleImage(src="/assets/nametag_title_sakura.png" alt="桜" title="桜")
               p.thumbnailBox__exp 文字くっきり
-              img.thumbnailBox__image(src="/assets/nametag_material_sakura.png")
+              img.thumbnailBox__image(src="/assets/nametag_sakura.jpg")
               .thumbnailBox__price 2000円
 
         .optionSelector__item
           label
             input.optionSelector__radio(type="radio" name="nametag-material" value="shitan")
             .thumbnailBox
-              h3.thumbnailBox__title 紫檀
+              h3.thumbnailBox__title 
+                img.thumbnailBox__titleImage(src="/assets/nametag_title_shitan.png" alt="紫檀" title="紫檀")
 
               p.thumbnailBox__exp 渋さと文字の両立
-              img.thumbnailBox__image(src="/assets/nametag_material_shitan.png")
+              img.thumbnailBox__image(src="/assets/nametag_shitan.jpg")
               .thumbnailBox__price 3000円
 
         .optionSelector__item
           label
             input.optionSelector__radio(type="radio" name="nametag-material" value="kokutan")
             .thumbnailBox
-              h3.thumbnailBox__title 黒檀
+              h3.thumbnailBox__title 
+                img.thumbnailBox__titleImage(src="/assets/nametag_title_kokutan.png" alt="黒檀" title="黒檀")
+
               p.thumbnailBox__exp とことん粋な渋さ
-              img.thumbnailBox__image(src="/assets/nametag_material_kokutan.png")
+              img.thumbnailBox__image(src="/assets/nametag_kokutan.jpg")
 
               .thumbnailBox__price 4000円
 
@@ -92,9 +94,9 @@
             input.optionSelector__radio(type="radio" name="nametag-ura" value="ura-nashi" checked)
 
             .thumbnailBox
-              h3.thumbnailBox__title 裏面なし
+              h3.thumbnailBox__title 裏面<br>なし
               p.thumbnailBox__exp 
-              img.thumbnailBox__image(src="/assets/nametag_uranashi.png")
+              img.thumbnailBox__image(src="/assets/nametag_uranashi.jpg")
               .thumbnailBox__price &nbsp;
 
         .optionSelector__item
@@ -102,9 +104,9 @@
           label
             input.optionSelector__radio(type="radio" name="nametag-ura" value="ura-ari")
             .thumbnailBox
-              h3.thumbnailBox__title 裏面あり
+              h3.thumbnailBox__title 裏面<br>あり
               p.thumbnailBox__exp 
-              img.thumbnailBox__image(src="/assets/nametag_uraari.png")
+              img.thumbnailBox__image(src="/assets/nametag_uraari.jpg")
               .thumbnailBox__price +1000円
       
 
@@ -156,7 +158,7 @@
             input.optionSelector__radio(type="radio" name="nametag_belt" value="black" checked)
             .thumbnailBox
               h3.thumbnailBox__title 黒
-              img.thumbnailBox__image(src="/assets/nametag_belt_black.png")
+              img.thumbnailBox__image(src="/assets/nametag_belt_black.jpg")
 
 
         .optionSelector__item
@@ -164,7 +166,7 @@
             input.optionSelector__radio(type="radio" name="nametag_belt" value="white")
             .thumbnailBox
               h3.thumbnailBox__title 白
-              img.thumbnailBox__image(src="/assets/nametag_belt_white.png")
+              img.thumbnailBox__image(src="/assets/nametag_belt_white.jpg")
 
 
 
@@ -245,7 +247,45 @@
 
           identifyVariant();
 
-        });
+          jQuery('.optionSelector.--column-3').slick({
+            slidesToShow:1,
+            slidesToScroll:1,
+            centerMode:true,
+            centerPadding:"300px",
+            focusOnSelect:true,
+            arrows:false,
+            infinite:false,
 
+            responsive: [
+              {
+                breakpoint: 800,
+                settings: {
+                  centerPadding:"200px",
+                }
+              },
+              {
+                breakpoint: 600,
+                settings: {
+                  centerPadding:"80px",
+                }
+              },
+              {
+                breakpoint: 320,
+                settings: {
+                  centerPadding:"30px",
+                }
+              }
+            ]
+
+          });
+
+          jQuery('.optionSelector.--column-2').slick({
+            slidesToShow:2,
+            slidesToScroll:1,
+            focusOnSelect:true,
+            arrows:false,
+          });
+
+        });
 
 

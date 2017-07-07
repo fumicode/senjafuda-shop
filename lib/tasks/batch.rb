@@ -85,4 +85,5 @@ class Tasks::Batch
 
     end
   end
+
 end

@@ -24,4 +24,6 @@ Dockerfile
 
 docker-compose.yml
 
+*.swo
+*.swp
 .data

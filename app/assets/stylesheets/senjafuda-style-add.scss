@@ -3,3 +3,16 @@ input[type="radio"].optionSelector__radio{
   display:none;
 
 }
+
+
+.thumbnailBox__title{
+  text-align:center;
+}
+
+.thumbnailBox__title img.thumbnailBox__titleImage{ /*詳細度のために無理やり*/
+
+  display:inline;
+  max-width:50%;
+
+}
+
