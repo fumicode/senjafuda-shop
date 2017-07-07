@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170705014040) do
+ActiveRecord::Schema.define(version: 20170706063031) do
 
   create_table "friendly_id_slugs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "slug",                      null: false
@@ -206,14 +206,11 @@ ActiveRecord::Schema.define(version: 20170705014040) do
     t.string   "nametag_ura_name"
     t.string   "nametag_belt"
     t.string   "type"
-<<<<<<< HEAD
-=======
     t.string   "kenkafuda_moji"
     t.string   "kenkafuda_ura_moji"
     t.string   "kenkafuda_tanzaku"
     t.string   "kenkafuda_kamon"
     t.string   "kenkafuda_himo"
->>>>>>> 14e06e30ada599a82264a2964807e20609b4a215
     t.index ["order_id"], name: "index_spree_line_items_on_order_id", using: :btree
     t.index ["type"], name: "index_spree_line_items_on_type", using: :btree
     t.index ["variant_id"], name: "index_spree_line_items_on_variant_id", using: :btree
@@ -448,14 +445,11 @@ ActiveRecord::Schema.define(version: 20170705014040) do
     t.boolean  "promotionable",                      default: true
     t.string   "meta_title"
     t.string   "type"
-<<<<<<< HEAD
     t.string   "kenkafuda_moji"
     t.string   "kenkafuda_ura_moji"
     t.string   "kenkafuda_tanzaku"
     t.string   "kenkafuda_kamon"
     t.string   "kenkafuda_himo"
-=======
->>>>>>> 14e06e30ada599a82264a2964807e20609b4a215
     t.index ["available_on"], name: "index_spree_products_on_available_on", using: :btree
     t.index ["deleted_at"], name: "index_spree_products_on_deleted_at", using: :btree
     t.index ["name"], name: "index_spree_products_on_name", using: :btree
